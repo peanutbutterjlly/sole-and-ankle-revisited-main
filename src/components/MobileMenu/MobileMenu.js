@@ -7,7 +7,6 @@ import Icon from '../Icon';
 import UnstyledButton from '../UnstyledButton';
 import VisuallyHidden from '../VisuallyHidden';
 
-import { COLORS } from '../../constants';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
@@ -45,7 +44,7 @@ const Wrapper = styled(DialogOverlay)`
   right: 0;
   bottom: 0;
   display: flex;
-  background-color: ${COLORS.white};
+  background-color: var(--white);
   padding: 32px;
   width: 300px;
 `;
@@ -68,7 +67,7 @@ const Content = styled(DialogContent)`
     justify-content: center;
 
     a {
-      color: ${COLORS.gray[900]};
+      color: var(--gray-900);
       font-size: ${18 / 16}rem;
       text-decoration: none;
     }
@@ -82,7 +81,7 @@ const Content = styled(DialogContent)`
     a {
       font-size: ${14 / 16}rem;
       text-decoration: none;
-      color: ${COLORS.gray[700]};
+      color: var(--gray-700);
     }
   }
 `;
