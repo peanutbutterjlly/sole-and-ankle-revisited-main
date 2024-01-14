@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { BREAKPOINTS, WEIGHTS } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
-import Spacer from '../Spacer';
-import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
+import ShoeSidebar from '../ShoeSidebar';
+import Spacer from '../Spacer';
 
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
@@ -51,6 +51,13 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media ${BREAKPOINTS.tabletAndBelow} {
+    position: absolute;
+    left: 32px;
+    top: 120px;
+    flex: 0 0 0;
+  }
 `;
 
 const MainColumn = styled.div`
