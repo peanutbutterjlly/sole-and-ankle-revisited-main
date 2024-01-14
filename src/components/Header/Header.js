@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { BREAKPOINTS, COLORS, WEIGHTS } from '../../constants';
+import Icon from '../Icon';
 import Logo from '../Logo';
-import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import SuperHeader from '../SuperHeader';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -21,15 +22,21 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
-        </Nav>
-        <Side />
+        <DesktopNav>
+          <Nav>
+            <NavLink href="/sale">Sale</NavLink>
+            <NavLink href="/new">New&nbsp;Releases</NavLink>
+            <NavLink href="/men">Men</NavLink>
+            <NavLink href="/women">Women</NavLink>
+            <NavLink href="/kids">Kids</NavLink>
+            <NavLink href="/collections">Collections</NavLink>
+          </Nav>
+        </DesktopNav>
+        <Side className='desktop'>
+          <Icon id="shopping-bag" />
+          <Icon id="search" />
+          <Icon id="menu" onClick={() => setShowMobileMenu(true)} />
+        </Side>
       </MainHeader>
 
       <MobileMenu
@@ -46,16 +53,48 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${BREAKPOINTS.desktopAndBelow} {
+    justify-content: space-between;
+  }
+`;
+
+const DesktopNav = styled.nav`
+  @media ${BREAKPOINTS.desktopAndBelow} {
+    display: none;
+    flex: 1;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media ${BREAKPOINTS.desktopAndBelow} {
+    display: grid;
+    position: absolute;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+  }
 `;
 
 const Side = styled.div`
-  flex: 1;
+  display: flex;
+  gap: 32px;
+
+  & > * {
+    cursor: pointer;
+  }
+
+  @media ${BREAKPOINTS.desktopAndAbove} {
+    flex: 1;
+
+    &.desktop > * {
+      display: none;
+    }
+  }
 `;
 
 const NavLink = styled.a`

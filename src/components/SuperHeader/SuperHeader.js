@@ -23,13 +23,12 @@ const SuperHeader = () => {
 };
 
 const Wrapper = styled.div`
-  height: 40px;
-
   & > * {
     display: none;
   }
 
   @media ${BREAKPOINTS.desktopAndAbove} {
+    height: 40px;
     display: flex;
     align-items: center;
     gap: 24px;
