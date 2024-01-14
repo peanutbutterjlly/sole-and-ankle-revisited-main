@@ -3,8 +3,8 @@ import styled from 'styled-components/macro';
 
 import { COLORS } from '../../constants';
 
-import VisuallyHidden from '../VisuallyHidden';
 import Icon from '../Icon';
+import VisuallyHidden from '../VisuallyHidden';
 
 const SearchInput = ({ label, ...delegated }) => {
   return (

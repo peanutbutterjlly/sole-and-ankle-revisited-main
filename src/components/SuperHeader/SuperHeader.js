@@ -13,9 +13,9 @@ const SuperHeader = () => {
       <MarketingMessage>
         Free shipping on domestic orders over $75!
       </MarketingMessage>
-      <SearchInput />
+      <SearchInput className="desktop-search" />
       <HelpLink href="/help">Help</HelpLink>
-      <UnstyledButton>
+      <UnstyledButton className="desktop-cart">
         <Icon id="shopping-bag" strokeWidth={1} />
       </UnstyledButton>
     </Wrapper>
@@ -24,6 +24,10 @@ const SuperHeader = () => {
 
 const Wrapper = styled.div`
   height: 40px;
+
+  & > * {
+    display: none;
+  }
 
   @media ${BREAKPOINTS.desktopAndAbove} {
     display: flex;
@@ -35,6 +39,10 @@ const Wrapper = styled.div`
     height: 40px;
     padding-left: 32px;
     padding-right: 32px;
+
+    & > * {
+      display: initial;
+    }
   }
 `;
 
