@@ -21,4 +21,5 @@ export const BREAKPOINTS = {
   mobileAndBelow: `(max-width: ${375 / 16}rem)`,
   tabletAndBelow: `(max-width: ${768 / 16}rem)`,
   desktopAndBelow: `(max-width: ${1440 / 16}rem)`,
+  desktopAndAbove: `(min-width: ${1440 / 16}rem)`,
 }

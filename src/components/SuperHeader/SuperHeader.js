@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS } from '../../constants';
+import { BREAKPOINTS, COLORS } from '../../constants';
 
+import Icon from '../Icon';
 import SearchInput from '../SearchInput';
 import UnstyledButton from '../UnstyledButton';
-import Icon from '../Icon';
 
 const SuperHeader = () => {
   return (
@@ -23,15 +23,19 @@ const SuperHeader = () => {
 };
 
 const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  font-size: 0.875rem;
-  color: ${COLORS.gray[300]};
-  background-color: ${COLORS.gray[900]};
   height: 40px;
-  padding-left: 32px;
-  padding-right: 32px;
+
+  @media ${BREAKPOINTS.desktopAndAbove} {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.875rem;
+    color: ${COLORS.gray[300]};
+    background-color: ${COLORS.gray[900]};
+    height: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 `;
 
 const MarketingMessage = styled.span`
@@ -40,12 +44,16 @@ const MarketingMessage = styled.span`
 `;
 
 const HelpLink = styled.a`
-  color: inherit;
-  text-decoration: none;
-  outline-offset: 2px;
+  display: none;
 
-  &:not(:focus-visible) {
-    outline: none;
+  @media ${BREAKPOINTS.desktopAndAbove} {
+    color: inherit;
+    text-decoration: none;
+    outline-offset: 2px;
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
   }
 `;
 
